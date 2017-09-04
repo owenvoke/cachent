@@ -1,7 +1,6 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "pxgamer/cachent",
+    "description": "A secure, open source torrent cache.",
     "license": "MIT",
     "type": "project",
     "require": {
