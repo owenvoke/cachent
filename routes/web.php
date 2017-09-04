@@ -16,6 +16,19 @@ Route::get('', function () {
     return view('index');
 });
 
+// Torrent
+Route::resource(
+    'torrents',
+    'TorrentController',
+    [
+        'only' => [
+            'store',
+            'show',
+            'destroy'
+        ]
+    ]
+);
+
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm');
 Route::post('login', 'Auth\LoginController@login');
