@@ -23,11 +23,11 @@ Route::resource(
     [
         'only' => [
             'store',
-            'show',
             'destroy'
         ]
     ]
 );
+Route::get('torrents/{hash}', 'TorrentController@show')->name('torrents.show');
 
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
