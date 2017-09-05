@@ -19,7 +19,7 @@
         <div>
             <h3>@lang('cache.cache_torrent')</h3>
 
-            <form action="{{ route('torrents.store') }}" method="post">
+            <form action="{{ route('torrents.store') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="btn-group">
