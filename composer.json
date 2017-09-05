@@ -8,7 +8,8 @@
         "coldwinds/torrent-rw": "^1.1",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "rych/bytesize": "^1.0.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
