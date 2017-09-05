@@ -32,10 +32,14 @@ class Torrent extends Model
                 if (!Storage::exists('torrents/' . $this->hash . '.torrent')) {
                     $this->status = $file->storeAs('torrents', $this->hash . '.torrent');
 
-                    return $this->save();
-                } else {
-                    $this->status = true;
+                    $torrentInstance = new Torrent();
+                    $torrentInstance->where('hash', $this->hash)->get();
+                    if (!$torrentInstance) {
+                        return $this->save();
+                    }
                 }
+
+                $this->status = true;
             }
         }
 
