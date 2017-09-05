@@ -19,7 +19,7 @@
         <div class="panel-group">
             <label for="direct-link">BBCode Link</label>
             <input id="direct-link" class="form-control" onclick="this.select()"
-                   value="[url]{{ route('torrents.show', ['torrent' => $torrent->hash]) }}[/url]">
+                   value="[url={{ route('torrents.show', ['torrent' => $torrent->hash]) }}]{{ $torrent->hash }}[/url]">
         </div>
     </div>
 </div>
