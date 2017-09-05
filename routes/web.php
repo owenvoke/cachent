@@ -12,9 +12,7 @@
 */
 
 // Main
-Route::get('', function () {
-    return view('index');
-})->name('index');
+Route::get('/', 'MainController@index')->name('index');
 
 // Torrent
 Route::resource(
