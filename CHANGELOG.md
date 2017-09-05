@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.0.1 (2017-09-05)
+
+### Changed
+- Added badges and Composer installation option to [`README`](README.md)
+
 ## v1.0.0 (2017-09-05)
 
 ### Added
