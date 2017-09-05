@@ -22,14 +22,30 @@ class TorrentController extends Controller
             $status = $torrent->addFileToDatabase($file);
 
             if ($status) {
-                return view('torrents.show', [
-                    'torrent' => $torrent,
-                    'file' => $file
-                ]);
+                if ($request->wantsJson()) {
+                    return response()->json([
+                        'success' => true,
+                        'hash' => $torrent->hash,
+                        'updated_at' => time(),
+                        'direct_link' => route('torrents.show', ['torrent' => $torrent->hash]),
+                    ])->setStatusCode(201);
+                } else {
+                    return view('torrents.show', [
+                        'torrent' => $torrent,
+                        'file' => $file
+                    ]);
+                }
             }
         }
 
-        return view('errors.upload');
+        if ($request->wantsJson()) {
+            return response()->json([
+                'success' => false,
+                'error' => __('validation.uploaded', ['attribute' => 'torrent']),
+            ])->setStatusCode(500);
+        } else {
+            return view('errors.upload');
+        }
     }
 
     /**
