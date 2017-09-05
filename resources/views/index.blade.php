@@ -2,9 +2,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="page-header">
-            <h1>{{ config('app.name') }}</h1>
-        </div>
+        @include('partials.heading')
 
         <div>
             <h3>@lang('cache.accessing_cached_torrents')</h3>

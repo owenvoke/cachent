@@ -2,9 +2,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="page-header">
-            <h1>{{ config('app.name') }}</h1>
-        </div>
+        @include('partials.heading')
 
         <div class="panel panel-danger">
             <div class="panel-heading">
