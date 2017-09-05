@@ -15,7 +15,20 @@ class TorrentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('file');
+        if ($file) {
+            $torrent = new Torrent();
+            $status = $torrent->addFileToDatabase($file);
+
+            if ($status) {
+                return view('torrents.show', [
+                    'torrent' => $torrent,
+                    'file' => $file
+                ]);
+            }
+        }
+
+        return view('errors.upload');
     }
 
     /**
