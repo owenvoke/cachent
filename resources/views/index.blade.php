@@ -19,7 +19,7 @@
         <div>
             <h3>@lang('cache.cache_torrent')</h3>
 
-            @include('torrents.form')
+            @include('torrents._form')
         </div>
     </div>
 @endsection
