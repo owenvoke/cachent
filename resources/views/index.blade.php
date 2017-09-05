@@ -23,9 +23,9 @@
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="btn-group">
-                        <label class="btn btn-default btn-wide btn-text-left">
+                        <label class="btn btn-default btn-wide btn-text-left" for="files">
                             <span>Choose files...</span>
-                            <input class="hide" type="file" multiple>
+                            <input class="hide" name="files" id="files" type="file" multiple>
                         </label>
                         <button class="btn btn-default btn-primary">
                             <span>Cache</span>
