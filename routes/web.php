@@ -14,7 +14,7 @@
 // Main
 Route::get('', function () {
     return view('index');
-});
+})->name('index');
 
 // Torrent
 Route::resource(
