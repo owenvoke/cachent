@@ -4,10 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Torrent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 
 class TorrentController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $data = [
+            'torrents' => Torrent::withTrashed()
+                ->where('hash', 'LIKE', '%' . Input::get('hash') . '%')
+                ->paginate(50)
+        ];
+
+        return view('torrents.index', $data);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
