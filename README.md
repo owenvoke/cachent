@@ -8,7 +8,7 @@ A secure, open source torrent cache.
 ## Dependencies
 
 - [Composer]
-- PHP 7.0 or greater
+- PHP 7.1 or greater
 - A web server
 
 ## Installation
