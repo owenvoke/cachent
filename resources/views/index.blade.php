@@ -10,7 +10,7 @@
             <p>@lang('cache.no_search')</p>
             <p>@lang('cache.access_url_structure')</p>
 
-            <blockquote>{{ url('torrents/{torrent_hash}') }}</blockquote>
+            <blockquote class="ellipsis">{{ url('torrents/{torrent_hash}') }}</blockquote>
 
         </div>
 

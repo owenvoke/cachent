@@ -8350,11 +8350,24 @@ button.close {
   }
 }
 
-.btn-wide {
-  width: 20em;
+.ellipsis {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
 }
 
-.btn-text-left {
+.btn.btn-wide {
+  min-width: 16em;
+  width: auto;
+}
+
+.btn.btn-text-left {
   text-align: left;
+}
+
+.table.table-fixed {
+  table-layout: fixed;
 }
 
