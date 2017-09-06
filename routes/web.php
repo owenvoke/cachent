@@ -21,6 +21,7 @@ Route::get('torrents/{hash}', 'TorrentController@show')->name('torrents.show');
 // Administration
 Route::group(['middleware' => ['auth']], function () {
     Route::get('torrents', 'TorrentController@index')->name('torrents.index');
+    Route::delete('torrents/{hash}', 'TorrentController@destroy')->name('torrents.delete');
 });
 
 // Authentication
