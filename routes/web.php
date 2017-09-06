@@ -18,6 +18,11 @@ Route::get('/', 'MainController@index')->name('index');
 Route::post('torrents', 'TorrentController@store')->name('torrents.store');
 Route::get('torrents/{hash}', 'TorrentController@show')->name('torrents.show');
 
+// Administration
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('torrents', 'TorrentController@index')->name('torrents.index');
+});
+
 // Authentication
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
