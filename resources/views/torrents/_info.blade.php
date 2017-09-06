@@ -4,7 +4,7 @@
     </div>
 
     <div class="panel-body">
-        <table class="table">
+        <table class="table table-fixed">
             <colgroup>
                 <col>
                 <col>
@@ -12,15 +12,15 @@
 
             <tr>
                 <th>Hash</th>
-                <td>{{ $torrent->hash }}</td>
+                <td class="ellipsis">{{ $torrent->hash }}</td>
             </tr>
             <tr>
                 <th>Size</th>
-                <td>{{ \Rych\ByteSize\ByteSize::formatMetric($file->getSize()) }}</td>
+                <td class="ellipsis">{{ \Rych\ByteSize\ByteSize::formatMetric($file->getSize()) }}</td>
             </tr>
             <tr>
                 <th>Updated at</th>
-                <td>{{ date('jS M Y, H:i') }}</td>
+                <td class="ellipsis">{{ date('jS M Y, H:i') }}</td>
             </tr>
         </table>
     </div>
