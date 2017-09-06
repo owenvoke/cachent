@@ -1,7 +1,10 @@
-.btn-wide {
-  width: 20em;
-}
+.btn {
+  &.btn-wide {
+    min-width: 16em;
+    width: auto;
+  }
 
-.btn-text-left {
-  text-align: left;
+  &.btn-text-left {
+    text-align: left;
+  }
 }
