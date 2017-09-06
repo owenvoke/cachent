@@ -4,10 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Torrent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 
 class TorrentController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $data = [
+            'torrents' => Torrent::withTrashed()
+                ->where('hash', 'LIKE', '%' . Input::get('hash') . '%')
+                ->paginate(50)
+        ];
+
+        return view('torrents.index', $data);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -18,6 +35,7 @@ class TorrentController extends Controller
     {
         $file = $request->file('file');
         if ($file) {
+            /** @var Torrent $torrent */
             $torrent = new Torrent();
             $status = $torrent->addFileToDatabase($file);
 
@@ -56,8 +74,8 @@ class TorrentController extends Controller
      */
     public function show(string $hash)
     {
-        $torrent = new Torrent();
-        $torrent->where('hash', $hash)->get();
+        /** @var Torrent $torrent */
+        $torrent = Torrent::where('hash', $hash)->first();
 
         $storagePath = 'torrents/' . $hash . '.torrent';
 
@@ -73,11 +91,22 @@ class TorrentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Torrent $torrent
+     * @param  string $hash
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Torrent $torrent)
+    public function destroy(string $hash)
     {
-        //
+        /** @var Torrent $torrent */
+        $torrent = Torrent::withTrashed()->where('hash', '=', $hash)->first();
+
+        if ($torrent->trashed()) {
+            $result = $torrent->restore();
+        } else {
+            $result = $torrent->delete();
+        }
+
+        return response()->json([
+            'success' => $result
+        ])->setStatusCode(200);
     }
 }

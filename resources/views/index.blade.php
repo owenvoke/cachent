@@ -4,6 +4,14 @@
     <div class="container">
         @include('partials.heading')
 
+        @auth
+            <div class="text-right">
+                <a href="{{ route('torrents.index') }}" class="btn btn-default">
+                    <span>All Torrents</span>
+                </a>
+            </div>
+        @endauth
+
         <div>
             <h3>@lang('cache.accessing_cached_torrents')</h3>
 

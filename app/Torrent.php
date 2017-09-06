@@ -22,6 +22,12 @@ class Torrent extends Model
 
     protected $status = false;
 
+    /**
+     * Parse file and add to database/storage if non-existent
+     *
+     * @param UploadedFile $file
+     * @return bool
+     */
     public function addFileToDatabase(UploadedFile $file)
     {
         if ($file->extension() === 'torrent') {
@@ -31,12 +37,11 @@ class Torrent extends Model
             if ($this->hash) {
                 if (!Storage::exists('torrents/' . $this->hash . '.torrent')) {
                     $this->status = $file->storeAs('torrents', $this->hash . '.torrent');
+                }
 
-                    $torrentInstance = new Torrent();
-                    $torrentInstance->where('hash', $this->hash)->get();
-                    if (!$torrentInstance) {
-                        return $this->save();
-                    }
+                $torrentInstance = Torrent::where('hash', '=', $this->hash)->get();
+                if ($torrentInstance->isEmpty()) {
+                    return $this->save();
                 }
 
                 $this->status = true;
