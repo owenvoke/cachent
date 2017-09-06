@@ -1,17 +1,24 @@
 @forelse ($torrents as $torrent)
-    <div class="row">
-        <div class="col-lg-11">
+    <div class="row" data-id="{{ $torrent->hash }}">
+        <div class="col-md-10">
             <a href="{{ route('torrents.show', $torrent->hash) }}">
                 <strong class="ellipsis">{{ $torrent->hash }}</strong>
             </a>
         </div>
-        <div class="col-lg-1">
-            @if ($torrent->trashed())
-                <a><span class="glyphicon glyphicon-trash"></span></a>
-            @else
-                <a><span class="glyphicon glyphicon-dashboard"></span></a>
-            @endif
-            <a><span class="glyphicon glyphicon-remove"></span></a>
+        <div class="col-md-2">
+            <div class="soft-delete">
+                @if ($torrent->trashed())
+                    <div title="Restore" class="btn btn-success btn-xs">
+                        <span class="glyphicon glyphicon-ok-circle"></span>
+                        <span>Restore</span>
+                    </div>
+                @else
+                    <div title="Soft Delete" class="btn btn-danger btn-xs">
+                        <span class="glyphicon glyphicon-ban-circle"></span>
+                        <span>Soft Delete</span>
+                    </div>
+                @endif
+            </div>
         </div>
     </div>
     <hr>
