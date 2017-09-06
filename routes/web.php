@@ -15,16 +15,7 @@
 Route::get('/', 'MainController@index')->name('index');
 
 // Torrent
-Route::resource(
-    'torrents',
-    'TorrentController',
-    [
-        'only' => [
-            'store',
-            'destroy'
-        ]
-    ]
-);
+Route::post('torrents', 'TorrentController@store')->name('torrents.store');
 Route::get('torrents/{hash}', 'TorrentController@show')->name('torrents.show');
 
 // Authentication
