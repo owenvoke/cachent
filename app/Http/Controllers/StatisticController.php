@@ -5,8 +5,17 @@ namespace App\Http\Controllers;
 use App\Torrent;
 use Illuminate\Support\Facades\Storage;
 
+/**
+ * Class StatisticController
+ * @package App\Http\Controllers
+ */
 class StatisticController extends Controller
 {
+    /**
+     * Display the list of recorded Cachent statistics
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $data = [
@@ -20,6 +29,8 @@ class StatisticController extends Controller
     }
 
     /**
+     * Displays the statistic show page for a specific torrent
+     *
      * @param string $hash
      * @return \Illuminate\Http\Response
      */
