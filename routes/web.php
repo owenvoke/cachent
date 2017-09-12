@@ -23,6 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('torrents', 'TorrentController@index')->name('torrents.index');
     Route::delete('torrents/{hash}', 'TorrentController@destroy')->name('torrents.delete');
     Route::get('statistics', 'StatisticController@index')->name('statistics.index');
+    Route::get('statistics/{hash}', 'StatisticController@show')->name('statistics.show');
 });
 
 // Authentication
