@@ -9,6 +9,9 @@
                 <a href="{{ route('torrents.index') }}" class="btn btn-default">
                     <span>All Torrents</span>
                 </a>
+                <a href="{{ route('statistics.index') }}" class="btn btn-default">
+                    <span>Statistics</span>
+                </a>
             </div>
         @endauth
 

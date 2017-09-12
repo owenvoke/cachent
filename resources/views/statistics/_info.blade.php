@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h4>Info</h4>
+        <h4>Statistics</h4>
     </div>
 
     <div class="panel-body">
