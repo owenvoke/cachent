@@ -3,12 +3,12 @@
 ## v1.0.6 (2017-09-12)
 
 ### Added
-- Added downloads count for torrents._info view
-- Added new statistics.show route for viewing stats for a specific torrent
+- Added downloads count for `torrents._info` view
+- Added new `statistics.show` route for viewing stats for a specific torrent
 - Added various navigation links to views for easier admin management
 
 ### Fixed
-- Fixed minor issues on torrents._info view
+- Fixed minor issues on `torrents._info` view
 
 ## v1.0.5 (2017-09-12)
 
@@ -18,8 +18,8 @@
 ## v1.0.4 (2017-09-12)
 
 ### Added
-- Added new statistics.index route for getting Cachent stats
-- Added new method Torrent::getTotalDownloads() for getting the total downloads across all active torrents
+- Added new `statistics.index` route for getting Cachent stats
+- Added new method `Torrent::getTotalDownloads()` for getting the total downloads across all active torrents
 - Added new column to the torrents table (`torrents.downloads`)
 - Added download tracking for torrent files (only works when the file actually exists)
 
