@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.0.4 (2017-09-12)
+
+### Added
+- Added new statistics.index route for getting Cachent stats
+- Added new method Torrent::getTotalDownloads() for getting the total downloads across all active torrents
+- Added new column to the torrents table (`torrents.downloads`)
+- Added download tracking for torrent files (only works when the file actually exists)
+
 ## v1.0.3 (2017-09-06)
 
 ### Added
