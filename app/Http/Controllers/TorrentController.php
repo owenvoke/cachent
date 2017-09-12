@@ -93,6 +93,7 @@ class TorrentController extends Controller
      *
      * @param  string $hash
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(string $hash)
     {
