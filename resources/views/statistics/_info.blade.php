@@ -11,7 +11,7 @@
             </colgroup>
 
             <tr>
-                <th>Download Statistics</th>
+                <th>Total Downloads</th>
                 <td class="ellipsis">{{ $totalDownloads }} (active only)</td>
             </tr>
             <tr>
