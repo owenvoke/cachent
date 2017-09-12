@@ -1,6 +1,10 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h4>Info</h4>
+        <h4>
+            <span>Info</span>
+            <a href="{{ route('torrents.show', ['hash'=>$torrent->hash]) }}"
+               class="btn btn-primary btn-xs pull-right">Download</a>
+        </h4>
     </div>
 
     <div class="panel-body">
