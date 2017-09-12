@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.0.5 (2017-09-12)
+
+### Fixed
+- Adjusted layout for hotfix
+
 ## v1.0.4 (2017-09-12)
 
 ### Added
