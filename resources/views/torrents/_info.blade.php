@@ -16,11 +16,15 @@
             </tr>
             <tr>
                 <th>Size</th>
-                <td class="ellipsis">{{ \Rych\ByteSize\ByteSize::formatMetric($file->getSize()) }}</td>
+                <td class="ellipsis">{{ \Rych\ByteSize\ByteSize::formatMetric($file->getSize() ?? $file->size()) }}</td>
             </tr>
             <tr>
                 <th>Updated at</th>
                 <td class="ellipsis">{{ date('jS M Y, H:i') }}</td>
+            </tr>
+            <tr>
+                <th>Downloads</th>
+                <td class="ellipsis">{{ $torrent->downloads }}</td>
             </tr>
         </table>
     </div>
