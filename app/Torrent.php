@@ -8,7 +8,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * @property int $id
+ * @property int    $id
  * @property string $hash
  * @property string deleted_at
  * @property string created_at
@@ -49,5 +49,15 @@ class Torrent extends Model
         }
 
         return $this->status;
+    }
+
+    /**
+     * Return the total downloads for all torrents
+     *
+     * @return int
+     */
+    public static function getTotalDownloads()
+    {
+        return static::sum('downloads');
     }
 }

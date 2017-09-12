@@ -80,6 +80,8 @@ class TorrentController extends Controller
         $storagePath = 'torrents/' . $hash . '.torrent';
 
         if (!$torrent->trashed() && Storage::exists($storagePath)) {
+            $torrent->downloads++;
+            $torrent->save();
             return response()->download(storage_path('app/') . $storagePath);
         }
 
@@ -93,6 +95,7 @@ class TorrentController extends Controller
      *
      * @param  string $hash
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(string $hash)
     {
