@@ -1,5 +1,15 @@
 # Release Notes
 
+## v1.0.6 (2017-09-12)
+
+### Added
+- Added downloads count for torrents._info view
+- Added new statistics.show route for viewing stats for a specific torrent
+- Added various navigation links to views for easier admin management
+
+### Fixed
+- Fixed minor issues on torrents._info view
+
 ## v1.0.5 (2017-09-12)
 
 ### Fixed
