@@ -19,12 +19,16 @@
                 <td class="ellipsis">{{ \Rych\ByteSize\ByteSize::formatMetric($file->getSize() ?? $file->size()) }}</td>
             </tr>
             <tr>
+                <th>First added</th>
+                <td class="ellipsis">{{ $torrent->created_at or date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
                 <th>Updated at</th>
-                <td class="ellipsis">{{ date('jS M Y, H:i') }}</td>
+                <td class="ellipsis">{{ $torrent->updated_at or date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
                 <th>Downloads</th>
-                <td class="ellipsis">{{ $torrent->downloads }}</td>
+                <td class="ellipsis">{{ $torrent->downloads or 0 }}</td>
             </tr>
         </table>
     </div>
