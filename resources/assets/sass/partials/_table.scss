@@ -2,4 +2,8 @@
   &.table-fixed {
     table-layout: fixed;
   }
+
+  tr:first-child > th, tr:first-child > td {
+    border-top: none;
+  }
 }
