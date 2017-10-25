@@ -32,6 +32,7 @@ class Torrent extends Model
     {
         if ($file->extension() === 'torrent') {
             $torrent = new \Torrent($file->getRealPath());
+            $this->filename = $file->getClientOriginalName();
             $this->hash = $torrent->hash_info();
 
             if ($this->hash) {

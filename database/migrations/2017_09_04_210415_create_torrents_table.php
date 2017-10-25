@@ -15,6 +15,7 @@ class CreateTorrentsTable extends Migration
     {
         Schema::create('torrents', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('filename');
             $table->string('hash')->unique();
 
             $table->softDeletes();
