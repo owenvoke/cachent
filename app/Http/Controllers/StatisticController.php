@@ -53,4 +53,23 @@ class StatisticController extends Controller
             ])->setStatusCode(404);
         }
     }
+
+    /**
+     * Destroys all .torrent files from database entries
+     * @return \Illuminate\Http\Response
+     */
+    public function purge()
+    {
+        $result = Torrent::truncate()->get()->count() == 0;
+        if ($result) {
+            return response()->json([
+                'success' => $result,
+                'message' => 'Purge Successful!'
+            ])->setStatusCode(200);
+        } else {
+            return response()->json([
+                'error' => 'Cannot Purge Torrents.'
+            ])->setStatusCode(500);
+        }
+    }
 }
