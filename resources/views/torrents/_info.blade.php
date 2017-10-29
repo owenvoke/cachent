@@ -9,14 +9,13 @@
 
     <div class="panel-body">
         <table class="table table-fixed">
-            <colgroup>
-                <col>
-                <col>
-            </colgroup>
-
             <tr>
                 <th>Hash</th>
                 <td class="ellipsis">{{ $torrent->hash }}</td>
+            </tr>
+            <tr>
+                <th>Filename</th>
+                <td class="ellipsis">{{ $torrent->filename }}</td>
             </tr>
             <tr>
                 <th>Size</th>
