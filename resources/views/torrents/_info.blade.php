@@ -19,6 +19,10 @@
                 <td class="ellipsis">{{ $torrent->hash }}</td>
             </tr>
             <tr>
+                <th>Original File Name</th>
+                <td class="ellipsis">{{ $torrent->filename }}</td>
+            </tr>
+            <tr>
                 <th>Size</th>
                 <td class="ellipsis">{{ \Rych\ByteSize\ByteSize::formatMetric($file->getSize() ?? $file->size()) }}</td>
             </tr>
