@@ -34,7 +34,7 @@ class Torrent extends Model
         if ($file->extension() === 'torrent') {
             $torrent = new \Torrent($file->getRealPath());
             $this->hash = $torrent->hash_info();
-            $this->filename = $torrent->name();
+            $this->filename = $torrent->name() ?? $torrent->hash_info();
 
             if ($this->hash) {
                 if (!Storage::exists('torrents/' . $this->hash . '.torrent')) {
