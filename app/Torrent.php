@@ -41,7 +41,7 @@ class Torrent extends Model
                     $this->status = $file->storeAs('torrents', $this->hash . '.torrent');
                 }
 
-                $torrentInstance = Torrent::where('hash', '=', $this->hash)->get();
+                $torrentInstance = Torrent::where('hash', $this->hash)->get();
                 if ($torrentInstance->isEmpty()) {
                     return $this->save();
                 }
