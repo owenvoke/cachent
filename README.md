@@ -3,7 +3,7 @@
 A secure, open source torrent cache.
 
 [![Version](https://img.shields.io/packagist/v/pxgamer/cachent.svg)](https://packagist.org/p/pxgamer/cachent)
-[![License](https://img.shields.io/packagist/l/pxgamer/cachent.svg)](https://opensource.org/licenses/mit-license)
+![License](https://img.shields.io/packagist/l/pxgamer/cachent.svg)
 
 ## Dependencies
 
