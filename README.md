@@ -22,12 +22,12 @@ A secure, open source torrent cache.
 
 ## Database
 
-_Production:_
+#### Production:
 
 1. Run the database migrations with `php artisan migrate`
 2. Use the `php artisan cachent:admin` command to generate your admin account details
 
-_Development:_
+#### Development:
 
 1. Run the database migrations with `php artisan migrate --seed` which will provide you with your admin details
 
