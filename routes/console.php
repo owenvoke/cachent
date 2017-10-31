@@ -13,11 +13,3 @@ use App\Torrent;
 | simple approach to interacting with each command's IO methods.
 |
 */
-
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->describe('Display an inspiring quote');
-
-Artisan::command('cachent:clear', function() {
-    $this->comment(Torrent::truncate()->get()->count() == 0 ? 'All entries in Torrents have been purged.' : 'Purge Unsuccessful!');
-})->describe('Truncate Torrents table (Destroy all entries)');
