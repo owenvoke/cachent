@@ -1,15 +1,22 @@
 # Release Notes
 
+## v1.1.0 (2017-10-31)
+
+### Added
+
+- Added the ability to purge files using the `cachent:clear` command ([#17](https://github.com/pxgamer/cachent/issues/17))
+- Added management of the admin account using the `cachent:admin` command ([#15](https://github.com/pxgamer/cachent/issues/15)/[#18](https://github.com/pxgamer/cachent/pull/18))
+
 ## v1.0.7 (2017-10-30)
 
 ### Added
 
-- Added a purge function for administrators to purge the database (#5)
-- Added listing of torrent's internal name (#7)
+- Added a purge function for administrators to purge the database ([#5](https://github.com/pxgamer/cachent/issues/5))
+- Added listing of torrent's internal name ([#7](https://github.com/pxgamer/cachent/issues/7))
 
 ### Fixed
 
-- Removed border top on first row of tables (eca95f9bb70cace718750a9e2b78bd92df627206)
+- Removed border top on first row of tables ([eca95f9](https://github.com/pxgamer/cachent/commit/eca95f9bb70cace718750a9e2b78bd92df627206))
 
 ## v1.0.6 (2017-09-12)
 
