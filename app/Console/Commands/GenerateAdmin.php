@@ -43,20 +43,38 @@ class GenerateAdmin extends Command
      */
     public function handle()
     {
-        if($this->option('username')||$this->option('password')||$this->option('email')||$this->option('generate')){
+        $continue = true;
+
+        if ($this->option('username') || $this->option('password') || $this->option('email') || $this->option('generate')) {
             $username = $this->option('username') ?? 'admin';
             $email = $this->option('email') ?? 'admin@cachent';
             $password = $this->option('password') ?? str_random(25);
-            DB::table('users')->insert([
-                'username' => $username,
-                'email' => $email,
-                'password' => bcrypt($password)
-            ]);
-            $this->info("Username: ".$username);
-            $this->info("Email: ".$email);
-            $this->info("Password: ".$password);
-        }else{
-            Artisan::call("cachent:admin -h");
+
+            try {
+                DB::table('users')->insert([
+                    'username' => $username,
+                    'email'    => $email,
+                    'password' => bcrypt($password)
+                ]);
+            } catch (\PDOException $e) {
+                switch ($e->getCode()) {
+                    case 23000:
+                        $this->error('A duplicate user already exists.');
+                        break;
+                    default:
+                        $this->error('An unknown error occurred.');
+                }
+
+                $continue = false;
+            }
+
+            if ($continue) {
+                $this->info("Username: " . $username);
+                $this->info("Email: " . $email);
+                $this->info("Password: " . $password);
+            }
+        } else {
+            $this->error('No options provided.');
         }
     }
 }
