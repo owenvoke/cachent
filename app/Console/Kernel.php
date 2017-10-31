@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\Purge::class
+        Commands\Purge::class,
+        Commands\GenerateAdmin::class
     ];
 
     /**
