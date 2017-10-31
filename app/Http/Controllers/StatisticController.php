@@ -62,14 +62,15 @@ class StatisticController extends Controller
     {
         $result = Torrent::truncate()->get()->count() == 0;
         if ($result) {
-            return response()->json([
+            $response_data = [
                 'success' => $result,
                 'message' => 'Purge Successful!'
-            ])->setStatusCode(200);
+            ];
+            $response_code = 200;
         } else {
-            return response()->json([
-                'error' => 'Cannot Purge Torrents.'
-            ])->setStatusCode(500);
+            $response_data = ['error' => 'Cannot Purge Torrents.'];
+            $response_code = 500;
         }
+        return response()->json($response_data)->setStatusCode($response_code);
     }
 }

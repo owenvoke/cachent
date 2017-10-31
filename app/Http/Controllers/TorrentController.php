@@ -42,15 +42,15 @@ class TorrentController extends Controller
             if ($status) {
                 if ($request->wantsJson()) {
                     return response()->json([
-                        'success' => true,
-                        'hash' => $torrent->hash,
-                        'updated_at' => time(),
+                        'success'     => true,
+                        'hash'        => $torrent->hash,
+                        'updated_at'  => time(),
                         'direct_link' => route('torrents.show', ['torrent' => $torrent->hash]),
                     ])->setStatusCode(201);
                 } else {
                     return view('torrents.show', [
                         'torrent' => $torrent,
-                        'file' => $file
+                        'file'    => $file
                     ]);
                 }
             }
@@ -100,13 +100,11 @@ class TorrentController extends Controller
     public function destroy(string $hash)
     {
         /** @var Torrent $torrent */
-        $torrent = Torrent::withTrashed()->where('hash', '=', $hash)->first();
+        $torrent = Torrent::withTrashed()->where('hash', $hash)->first();
 
-        if ($torrent->trashed()) {
-            $result = $torrent->restore();
-        } else {
-            $result = $torrent->delete();
-        }
+        $result = ($torrent->trashed()) ?
+            $torrent->restore() :
+            $torrent->delete();
 
         return response()->json([
             'success' => $result
