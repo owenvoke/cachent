@@ -1,5 +1,12 @@
 # Release Notes
 
+## v1.1.0 (2017-10-31)
+
+### Added
+
+- Added the ability to purge files using the `cachent:clear` command ([#17](https://github.com/pxgamer/cachent/issues/17))
+- Added management of the admin account using the `cachent:admin` command ([#15](https://github.com/pxgamer/cachent/issues/15)/[#18](https://github.com/pxgamer/cachent/pull/18))
+
 ## v1.0.7 (2017-10-30)
 
 ### Added
