@@ -18,7 +18,7 @@
                 <th>Most Downloaded Torrent</th>
                 <td class="ellipsis">
                     <a href="{{ route('statistics.show', ['hash'=>$mostDownloaded->hash ?? null]) }}">{{ str_limit($mostDownloaded->hash ?? 0, 12, '') }}</a>
-                    <span>({{ $mostDownloaded->downloads or 0 }} downloads)</span>
+                    <span>({{ $mostDownloaded->downloads ?? 0 }} downloads)</span>
                 </td>
             </tr>
             <tr>
