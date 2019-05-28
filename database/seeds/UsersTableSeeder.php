@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
@@ -14,7 +15,7 @@ class UsersTableSeeder extends Seeder
     {
         $username = 'admin';
         $email = 'admin@cachent';
-        $password = str_random(25);
+        $password = Str::random(25);
 
         $output = new ConsoleOutput();
         $output->writeln([
