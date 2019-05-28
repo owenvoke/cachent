@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Artisan;
+use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use DB;
 
@@ -48,7 +49,7 @@ class GenerateAdmin extends Command
         if ($this->option('username') || $this->option('password') || $this->option('email') || $this->option('generate')) {
             $username = $this->option('username') ?? 'admin';
             $email = $this->option('email') ?? 'admin@cachent';
-            $password = $this->option('password') ?? str_random(25);
+            $password = $this->option('password') ?? Str::random(25);
 
             try {
                 DB::table('users')->insert([
