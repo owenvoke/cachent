@@ -2,10 +2,9 @@
 
 namespace App\Console\Commands;
 
-use Artisan;
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class GenerateAdmin extends Command
 {
