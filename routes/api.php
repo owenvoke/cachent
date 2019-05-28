@@ -11,5 +11,8 @@
 |
 */
 
-Route::get('torrents/{name}', 'TorrentController@show');
-Route::post('torrents', 'TorrentController@store');
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TorrentController;
+
+Route::get('torrents/{name}', [TorrentController::class, 'show']);
+Route::post('torrents', [TorrentController::class, 'store']);

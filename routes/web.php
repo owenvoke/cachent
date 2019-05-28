@@ -12,22 +12,28 @@
 */
 
 // Main
-Route::get('/', 'MainController@index')->name('index');
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\TorrentController;
+use App\Http\Controllers\StatisticController;
+use App\Http\Controllers\Auth\LoginController;
+
+Route::get('/', [MainController::class, 'index'])->name('index');
 
 // Torrent
-Route::post('torrents', 'TorrentController@store')->name('torrents.store');
-Route::get('torrents/{hash}', 'TorrentController@show')->name('torrents.show');
+Route::post('torrents', [TorrentController::class, 'store'])->name('torrents.store');
+Route::get('torrents/{hash}', [TorrentController::class, 'show'])->name('torrents.show');
 
 // Administration
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('torrents', 'TorrentController@index')->name('torrents.index');
-    Route::delete('torrents/{hash}', 'TorrentController@destroy')->name('torrents.delete');
-    Route::get('statistics', 'StatisticController@index')->name('statistics.index');
-    Route::get('statistics/{hash}', 'StatisticController@show')->name('statistics.show');
-    Route::delete('statistics', 'StatisticController@purge')->name('statistics.purge');
+    Route::get('torrents', [TorrentController::class, 'index'])->name('torrents.index');
+    Route::delete('torrents/{hash}', [TorrentController::class, 'destroy'])->name('torrents.delete');
+    Route::get('statistics', [StatisticController::class, 'index'])->name('statistics.index');
+    Route::get('statistics/{hash}', [StatisticController::class, 'show'])->name('statistics.show');
+    Route::delete('statistics', [StatisticController::class, 'purge'])->name('statistics.purge');
 });
 
 // Authentication
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
