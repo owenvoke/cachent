@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TorrentController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -10,9 +13,6 @@
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TorrentController;
 
 Route::get('torrents/{name}', [TorrentController::class, 'show']);
 Route::post('torrents', [TorrentController::class, 'store']);

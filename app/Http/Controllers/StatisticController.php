@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Torrent;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
 
-/**
- * Class StatisticController
- * @package App\Http\Controllers
- */
 class StatisticController extends Controller
 {
     /**
@@ -31,14 +28,12 @@ class StatisticController extends Controller
     /**
      * Displays the statistic show page for a specific torrent
      *
-     * @param string $hash
-     * @return \Illuminate\Http\Response
+     * @param  Torrent  $torrent
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response|object
      */
-    public function show(string $hash)
+    public function show(Torrent $torrent)
     {
-        $torrent = Torrent::where('hash', $hash)->first();
-
-        $storagePath = 'torrents/' . $hash . '.torrent';
+        $storagePath = 'torrents/' . $torrent->hash . '.torrent';
 
         if ($torrent->hash && Storage::exists($storagePath)) {
             $data = [
@@ -47,29 +42,29 @@ class StatisticController extends Controller
             ];
 
             return view('torrents.show', $data);
-        } else {
-            return response()->json([
-                'error' => 'File not found'
-            ])->setStatusCode(404);
         }
+
+        return response()->json([
+            'error' => 'File not found'
+        ])->setStatusCode(404);
     }
 
     /**
      * Destroys all .torrent files from database entries
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response|object
      */
     public function purge()
     {
-        $result = Torrent::truncate()->get()->count() == 0;
+        $result = Torrent::truncate()->get()->count() === 0;
         if ($result) {
             return response()->json([
                 'success' => $result,
                 'message' => 'Purge Successful!'
             ])->setStatusCode(200);
-        } else {
-            return response()->json([
-                'error' => 'Cannot Purge Torrents.'
-            ])->setStatusCode(500);
         }
+
+        return response()->json([
+            'error' => 'Cannot Purge Torrents.'
+        ])->setStatusCode(500);
     }
 }

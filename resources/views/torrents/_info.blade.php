@@ -2,7 +2,7 @@
     <div class="panel-heading">
         <h4>
             <span>Info</span>
-            <a href="{{ route('torrents.show', ['hash'=>$torrent->hash]) }}"
+            <a href="{{ route('torrents.show', ['torrent' => $torrent]) }}"
                class="btn btn-primary btn-xs pull-right">Download</a>
         </h4>
     </div>

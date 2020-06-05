@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use App\Torrent;
-
 /*
 |--------------------------------------------------------------------------
 | Console Routes

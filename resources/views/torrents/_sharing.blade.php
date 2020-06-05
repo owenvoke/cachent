@@ -7,19 +7,19 @@
         <div class="panel-group">
             <label for="direct-link">Direct Link</label>
             <input id="direct-link" class="form-control" onclick="this.select()"
-                   value="{{ route('torrents.show', ['torrent' => $torrent->hash]) }}">
+                   value="{{ route('torrents.show', ['torrent' => $torrent]) }}">
         </div>
 
         <div class="panel-group">
             <label for="direct-link">Markdown Link</label>
             <input id="direct-link" class="form-control" onclick="this.select()"
-                   value="[{{ $torrent->hash }}]({{ route('torrents.show', ['torrent' => $torrent->hash]) }})">
+                   value="[{{ $torrent->hash }}]({{ route('torrents.show', ['torrent' => $torrent]) }})">
         </div>
 
         <div class="panel-group">
             <label for="direct-link">BBCode Link</label>
             <input id="direct-link" class="form-control" onclick="this.select()"
-                   value="[url={{ route('torrents.show', ['torrent' => $torrent->hash]) }}]{{ $torrent->hash }}[/url]">
+                   value="[url={{ route('torrents.show', ['torrent' => $torrent]) }}]{{ $torrent->hash }}[/url]">
         </div>
     </div>
 </div>

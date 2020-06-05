@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Torrent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class TorrentController extends Controller
@@ -12,13 +12,14 @@ class TorrentController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = [
             'torrents' => Torrent::withTrashed()
-                ->where('hash', 'LIKE', '%' . Input::get('hash') . '%')
+                ->where('hash', 'LIKE', '%' . $request->get('hash') . '%')
                 ->paginate(50)
         ];
 
@@ -29,7 +30,7 @@ class TorrentController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response|object
      */
     public function store(Request $request)
     {
@@ -45,14 +46,14 @@ class TorrentController extends Controller
                         'success' => true,
                         'hash' => $torrent->hash,
                         'updated_at' => time(),
-                        'direct_link' => route('torrents.show', ['torrent' => $torrent->hash]),
+                        'direct_link' => route('torrents.show', ['torrent' => $torrent]),
                     ])->setStatusCode(201);
-                } else {
-                    return view('torrents.show', [
-                        'torrent' => $torrent,
-                        'file' => $file
-                    ]);
                 }
+
+                return view('torrents.show', [
+                    'torrent' => $torrent,
+                    'file' => $file
+                ]);
             }
         }
 
@@ -61,23 +62,20 @@ class TorrentController extends Controller
                 'success' => false,
                 'error' => __('validation.uploaded', ['attribute' => 'torrent']),
             ])->setStatusCode(500);
-        } else {
-            return view('errors.upload');
         }
+
+        return view('errors.upload');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param string $hash
-     * @return \Illuminate\Http\Response
+     * @param Torrent $torrent
+     * @return \Illuminate\Http\JsonResponse|object|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function show(string $hash)
+    public function show(Torrent $torrent)
     {
-        /** @var Torrent $torrent */
-        $torrent = Torrent::where('hash', $hash)->first();
-
-        $storagePath = 'torrents/' . $hash . '.torrent';
+        $storagePath = 'torrents/' . $torrent->hash . '.torrent';
 
         if (!$torrent->trashed() && Storage::exists($storagePath)) {
             $torrent->downloads++;
@@ -93,23 +91,14 @@ class TorrentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  string $hash
-     * @return \Illuminate\Http\Response
+     * @param  Torrent  $torrent
+     * @return \Illuminate\Http\JsonResponse|object
      * @throws \Exception
      */
-    public function destroy(string $hash)
+    public function destroy(Torrent $torrent)
     {
-        /** @var Torrent $torrent */
-        $torrent = Torrent::withTrashed()->where('hash', '=', $hash)->first();
-
-        if ($torrent->trashed()) {
-            $result = $torrent->restore();
-        } else {
-            $result = $torrent->delete();
-        }
-
         return response()->json([
-            'success' => $result
+            'success' => $torrent->delete(),
         ])->setStatusCode(200);
     }
 }

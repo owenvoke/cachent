@@ -1,14 +1,14 @@
 @forelse ($torrents as $torrent)
     <div class="row" data-id="{{ $torrent->hash }}">
         <div class="col-md-9">
-            <a href="{{ route('torrents.show', $torrent->hash) }}">
+            <a href="{{ route('torrents.show', ['torrent' => $torrent]) }}">
                 <strong class="ellipsis">{{ $torrent->hash }}</strong>
             </a>
         </div>
         <div class="col-md-3">
             <ul class="list-inline list-unstyled">
                 <li>
-                    <a href="{{ route('statistics.show', ['hash'=>$torrent->hash]) }}"
+                    <a href="{{ route('statistics.show', ['torrent' => $torrent]) }}"
                        title="Statistics" class="btn btn-primary btn-xs">
                         <span class="glyphicon glyphicon-stats"></span>
                         <span>Statistics</span>

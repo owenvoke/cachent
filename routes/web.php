@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\StatisticController;
+use App\Http\Controllers\TorrentController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,24 +17,18 @@
 */
 
 // Main
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\TorrentController;
-use App\Http\Controllers\StatisticController;
-use App\Http\Controllers\Auth\LoginController;
-
-Route::get('/', [MainController::class, 'index'])->name('index');
+Route::view('/', 'index')->name('index');
 
 // Torrent
 Route::post('torrents', [TorrentController::class, 'store'])->name('torrents.store');
-Route::get('torrents/{hash}', [TorrentController::class, 'show'])->name('torrents.show');
+Route::get('torrents/{torrent:hash}', [TorrentController::class, 'show'])->name('torrents.show');
 
 // Administration
 Route::group(['middleware' => ['auth']], function () {
     Route::get('torrents', [TorrentController::class, 'index'])->name('torrents.index');
-    Route::delete('torrents/{hash}', [TorrentController::class, 'destroy'])->name('torrents.delete');
+    Route::delete('torrents/{torrent:hash}', [TorrentController::class, 'destroy'])->name('torrents.delete');
     Route::get('statistics', [StatisticController::class, 'index'])->name('statistics.index');
-    Route::get('statistics/{hash}', [StatisticController::class, 'show'])->name('statistics.show');
+    Route::get('statistics/{torrent:hash}', [StatisticController::class, 'show'])->name('statistics.show');
     Route::delete('statistics', [StatisticController::class, 'purge'])->name('statistics.purge');
 });
 
