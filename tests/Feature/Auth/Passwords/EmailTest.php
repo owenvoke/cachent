@@ -1,53 +1,39 @@
 <?php
 
-namespace Tests\Feature\Auth\Passwords;
-
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
-use Tests\TestCase;
 
-class EmailTest extends TestCase
-{
-    use RefreshDatabase;
+uses(RefreshDatabase::class);
 
-    /** @test */
-    public function can_view_password_request_page()
-    {
-        $this->get(route('password.request'))
-            ->assertSuccessful()
-            ->assertSeeLivewire('auth.passwords.email');
-    }
+it('can view the password request page', function () {
+    $this->get(route('password.request'))
+        ->assertSuccessful()
+        ->assertSeeLivewire('auth.passwords.email');
+});
 
-    /** @test */
-    public function a_user_must_enter_an_email_address()
-    {
-        Livewire::test('auth.passwords.email')
-            ->call('sendResetPasswordLink')
-            ->assertHasErrors(['email' => 'required']);
-    }
+it('requires a user to enter an email', function () {
+    Livewire::test('auth.passwords.email')
+        ->call('sendResetPasswordLink')
+        ->assertHasErrors(['email' => 'required']);
+});
 
-    /** @test */
-    public function a_user_must_enter_a_valid_email_address()
-    {
-        Livewire::test('auth.passwords.email')
-            ->set('email', 'email')
-            ->call('sendResetPasswordLink')
-            ->assertHasErrors(['email' => 'email']);
-    }
+it('requires a user to enter a valid email', function () {
+    Livewire::test('auth.passwords.email')
+        ->set('email', 'email')
+        ->call('sendResetPasswordLink')
+        ->assertHasErrors(['email' => 'email']);
+});
 
-    /** @test */
-    public function a_user_who_enters_a_valid_email_address_will_get_sent_an_email()
-    {
-        $user = factory(User::class)->create();
+it('sends an email to a user that enters a valid email', function () {
+    $user = factory(User::class)->create();
 
-        Livewire::test('auth.passwords.email')
-            ->set('email', $user->email)
-            ->call('sendResetPasswordLink')
-            ->assertNotSet('emailSentMessage', false);
+    Livewire::test('auth.passwords.email')
+        ->set('email', $user->email)
+        ->call('sendResetPasswordLink')
+        ->assertNotSet('emailSentMessage', false);
 
-        $this->assertDatabaseHas('password_resets', [
-            'email' => $user->email,
-        ]);
-    }
-}
+    $this->assertDatabaseHas('password_resets', [
+        'email' => $user->email,
+    ]);
+});
