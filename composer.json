@@ -12,6 +12,7 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
+        "livewire/livewire": "^1.2",
         "rych/bytesize": "^1.0"
     },
     "require-dev": {

@@ -1,8 +1,8 @@
 @extends('layouts.auth')
-@section('title', 'Sign in to your account')
+@section('title', 'Reset password')
 
 @section('content')
     <div>
-        @livewire('auth.login')
+        @livewire('auth.passwords.email')
     </div>
 @endsection
