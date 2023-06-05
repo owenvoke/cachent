@@ -1,6 +1,7 @@
 <?php
 
-it('can test basic', function () {
-    $this->get(route('home'))
-        ->assertSuccessful();
+it('returns a successful response', function () {
+    $response = $this->get('/');
+
+    $response->assertStatus(200);
 });

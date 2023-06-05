@@ -1,29 +1,23 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
 
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './vendor/laravel/jetstream/**/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+    ],
+
     theme: {
-        extend: {},
-    },
-    variants: {},
-    purge: {
-        content: [
-            './app/**/*.php',
-            './resources/**/*.html',
-            './resources/**/*.js',
-            './resources/**/*.jsx',
-            './resources/**/*.ts',
-            './resources/**/*.tsx',
-            './resources/**/*.php',
-            './resources/**/*.vue',
-            './resources/**/*.twig',
-        ],
-        options: {
-            defaultExtractor: (content) => content.match(/[\w-/.:]+(?<!:)/g) || [],
-            whitelistPatterns: [/-active$/, /-enter$/, /-leave-to$/, /show$/],
+        extend: {
+            fontFamily: {
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            },
         },
     },
-    plugins: [
-        require('@tailwindcss/custom-forms'),
-        require('@tailwindcss/ui'),
-    ],
+
+    plugins: [forms, typography],
 };
