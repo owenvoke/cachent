@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1394d29f53f818f4aee7950dc6c17c8b",
+    "content-hash": "e8b20edc55c549e2d6477c63b90f18e4",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -114,6 +114,45 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "coldwinds/torrent-rw",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coldwinds/torrent-rw.git",
+                "reference": "509894fc2bb94ad7a6d6223a73c7745545ca8384"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coldwinds/torrent-rw/zipball/509894fc2bb94ad7a6d6223a73c7745545ca8384",
+                "reference": "509894fc2bb94ad7a6d6223a73c7745545ca8384",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Torrent.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Version 3 of the GNU GPL"
+            ],
+            "description": "Composer version of torrent-rw https://github.com/adriengibrat/torrent-rw",
+            "keywords": [
+                "bencode",
+                "bittorrent",
+                "torrent",
+                "torrent-rw"
+            ],
+            "support": {
+                "source": "https://github.com/coldwinds/torrent-rw/tree/master"
+            },
+            "time": "2016-05-23T04:58:25+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -3613,6 +3652,55 @@
                 }
             ],
             "time": "2023-04-15T23:01:58+00:00"
+        },
+        {
+            "name": "rych/bytesize",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rchouinard/bytesize.git",
+                "reference": "297e16ea047461b91e8d7eb90aa46aaa52917824"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rchouinard/bytesize/zipball/297e16ea047461b91e8d7eb90aa46aaa52917824",
+                "reference": "297e16ea047461b91e8d7eb90aa46aaa52917824",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "php": ">=5.3.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rych\\ByteSize\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Chouinard",
+                    "email": "rchouinard@gmail.com",
+                    "homepage": "http://ryanchouinard.com"
+                }
+            ],
+            "description": "Utility component for nicely formatted file sizes.",
+            "homepage": "https://github.com/rchouinard/bytesize",
+            "keywords": [
+                "filesize"
+            ],
+            "support": {
+                "issues": "https://github.com/rchouinard/bytesize/issues",
+                "source": "https://github.com/rchouinard/bytesize/tree/master"
+            },
+            "time": "2014-04-04T18:06:18+00:00"
         },
         {
             "name": "symfony/console",
