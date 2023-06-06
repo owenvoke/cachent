@@ -11,9 +11,11 @@ return new class extends Migration
     {
         Schema::create('torrents', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->nullable();
             $table->string('hash')->unique();
-            $table->string('filename');
+            $table->string('filename')->nullable();
+            $table->bigInteger('size')->nullable();
+            $table->bigInteger('downloads')->default(0);
+            $table->foreignIdFor(User::class)->nullable();
             $table->timestamps();
         });
     }

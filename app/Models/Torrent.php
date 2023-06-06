@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property string $hash
- * @property string $filename
+ * @property string|null $filename
  * @property string created_at
  * @property string updated_at
  * @property User $user

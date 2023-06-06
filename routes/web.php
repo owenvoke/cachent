@@ -1,5 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DetailsController;
+use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\UploadController;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/** @var Router $router */
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+$router->get('/', DashboardController::class)->name('dashboard');
+$router->post('/upload', UploadController::class)->name('upload');
+$router->get('/torrents/{torrent:hash}.torrent', DownloadController::class)->name('download');
+$router->get('/torrents/{torrent:hash}', DetailsController::class)->name('details');

@@ -21,6 +21,8 @@ class TorrentFactory extends Factory
             'hash' => $this->faker->sha1(),
             'filename' => "{$this->faker->slug()}.{$this->faker->fileExtension()}",
             'user_id' => UserFactory::new(),
+            'size' => $this->faker->randomNumber(),
+            'downloads' => $this->faker->randomDigit(),
         ];
     }
 }
