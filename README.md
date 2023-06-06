@@ -8,7 +8,11 @@ A secure, open source torrent cache.
 
 ## Install
 
-...
+Via Composer
+
+```shell
+composer create-project owenvoke/cachent
+```
 
 ## Usage
 
