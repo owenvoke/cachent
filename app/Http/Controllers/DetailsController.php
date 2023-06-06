@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Torrent;
 use Illuminate\Contracts\View\Factory as ViewFactory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class DetailsController
@@ -15,7 +16,7 @@ class DetailsController
     ) {
     }
 
-    public function __invoke(Request $request, Torrent $torrent)
+    public function __invoke(Request $request, Torrent $torrent): View
     {
         return $this->view->make('details', ['torrent' => $torrent]);
     }

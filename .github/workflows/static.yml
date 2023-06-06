@@ -1,0 +1,51 @@
+name: Static Analysis
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  code-style:
+    runs-on: ubuntu-latest
+
+    name: Code Style
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          coverage: none
+
+      - name: Install Dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress --ansi
+
+      - name: Run Pint
+        run: vendor/bin/pint --test --ansi
+
+  phpstan:
+    runs-on: ubuntu-latest
+
+    name: PHPStan
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          coverage: none
+
+      - name: Install Dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress --ansi
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse --no-progress --ansi

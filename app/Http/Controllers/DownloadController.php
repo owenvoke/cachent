@@ -8,6 +8,7 @@ use App\Models\Torrent;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class DownloadController
 {
@@ -17,7 +18,7 @@ class DownloadController
     ) {
     }
 
-    public function __invoke(Request $request, Torrent $torrent)
+    public function __invoke(Request $request, Torrent $torrent): BinaryFileResponse
     {
         $torrent->increment('downloads');
 

@@ -1,0 +1,9 @@
+includes:
+  - ./vendor/nunomaduro/larastan/extension.neon
+  - ./vendor/thecodingmachine/phpstan-safe-rule/phpstan-safe-rule.neon
+
+parameters:
+  level: 8
+  paths:
+    - app
+    - routes

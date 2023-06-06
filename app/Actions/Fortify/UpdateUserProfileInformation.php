@@ -26,7 +26,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
-            $user->updateProfilePhoto($input['photo']);
+            $user->updateProfilePhoto($input['photo']); // @phpstan-ignore-line
         }
 
         if ($input['email'] !== $user->email &&

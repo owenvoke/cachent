@@ -61,6 +61,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    /** @return BelongsToMany<Torrent> */
     public function torrents(): BelongsToMany
     {
         return $this->belongsToMany(Torrent::class);

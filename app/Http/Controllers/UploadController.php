@@ -7,6 +7,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UploadRequest;
 use App\Models\Torrent;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Routing\Redirector;
 
 class UploadController
@@ -17,8 +19,9 @@ class UploadController
     ) {
     }
 
-    public function __invoke(UploadRequest $request)
+    public function __invoke(UploadRequest $request): RedirectResponse
     {
+        /** @var UploadedFile $torrentFile */
         $torrentFile = $request->file('torrent');
 
         $data = new \Torrent($torrentFile);

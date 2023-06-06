@@ -16,7 +16,7 @@ class UploadedTorrents extends Component
     {
         return view('livewire.uploaded-torrents', [
             'torrents' => auth()->user()
-                ->torrents()
+                ?->torrents()
                 ->paginate(25),
         ]);
     }
