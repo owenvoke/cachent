@@ -23,6 +23,12 @@
                     </label>
                 </form>
             </div>
+
+            @auth
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg mt-8">
+                    <livewire:uploaded-torrents></livewire:uploaded-torrents>
+                </div>
+            @endauth
         </div>
     </div>
 </x-app-layout>
