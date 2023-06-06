@@ -21,7 +21,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($torrents as $torrent)
+                        @forelse($torrents as $torrent)
                             <tr>
                                 <td class="whitespace-nowrap border-b border-gray-200 dark:border-gray-800 py-4 pl-4 pr-3 text-sm font-medium sm:pl-6 lg:pl-8">
                                     {{ $torrent->filename ?? $torrent->hash }}
@@ -35,7 +35,13 @@
                                             class="sr-only">, {{ $torrent->filename }}</span></a>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="3" class="whitespace-nowrap border-b border-gray-200 dark:border-gray-800 py-4 pl-4 pr-3 text-sm font-medium sm:pl-6 lg:pl-8">
+                                    You have not uploaded any torrents.
+                                </td>
+                            </tr>
+                        @endforelse
                         </tbody>
                     </table>
                 </div>

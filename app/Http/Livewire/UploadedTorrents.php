@@ -1,9 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Livewire;
 
-use App\Models\Torrent;
-use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -17,7 +17,7 @@ class UploadedTorrents extends Component
         return view('livewire.uploaded-torrents', [
             'torrents' => auth()->user()
                 ->torrents()
-                ->paginate(25)
+                ->paginate(25),
         ]);
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use App\Models\Torrent;
@@ -20,7 +22,6 @@ class TorrentFactory extends Factory
         return [
             'hash' => $this->faker->sha1(),
             'filename' => "{$this->faker->slug()}.{$this->faker->fileExtension()}",
-            'user_id' => UserFactory::new(),
             'size' => $this->faker->randomNumber(),
             'downloads' => $this->faker->randomDigit(),
         ];

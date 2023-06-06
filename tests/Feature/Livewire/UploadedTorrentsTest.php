@@ -1,20 +1,15 @@
 <?php
 
-namespace Tests\Feature\Livewire;
+declare(strict_types=1);
 
 use App\Http\Livewire\UploadedTorrents;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use Database\Factories\UserFactory;
 use Livewire\Livewire;
-use Tests\TestCase;
 
-class UploadedTorrentsTest extends TestCase
-{
-    /** @test */
-    public function the_component_can_render()
-    {
-        $component = Livewire::test(UploadedTorrents::class);
+it('can render the component', function () {
+    $user = UserFactory::new()->create();
 
-        $component->assertStatus(200);
-    }
-}
+    $component = Livewire::actingAs($user)->test(UploadedTorrents::class);
+
+    $component->assertStatus(200);
+});

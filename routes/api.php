@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 /** @var Router $router */
-
 $router->middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
