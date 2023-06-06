@@ -27,9 +27,12 @@ class UploadController
             'hash' => $data->hash_info(),
         ], [
             'filename' => $data->name(),
-            'user_id' => $request->user()?->id,
             'size' => $data->size(),
         ]);
+
+        if ($request->user()) {
+            $request->user()->torrents()->attach($torrent);
+        }
 
         if ($torrent->wasRecentlyCreated && ! $this->filesystem->exists("app/torrents/{$torrent->hash}.torrent")) {
             $torrentFile->storePubliclyAs('torrents', "{$torrent->hash}.torrent");
