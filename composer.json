@@ -52,10 +52,12 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "test:lint": "pint --test",
+        "test:lint": "pint --test --ansi",
+        "test:types": "phpstan analyse --memory-limit=-1 --ansi",
         "test:unit": "pest --colors=always",
         "test": [
             "@test:lint",
+            "@test:types",
             "@test:unit"
         ]
     },
