@@ -10,11 +10,11 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
-class DownloadController
+readonly class DownloadController
 {
     public function __construct(
-        private readonly ResponseFactory $response,
-        private readonly Application $app,
+        private ResponseFactory $response,
+        private Application $app,
     ) {
     }
 

@@ -8,10 +8,10 @@ use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class DashboardController
+readonly class DashboardController
 {
     public function __construct(
-        private readonly ViewFactory $view,
+        private ViewFactory $view,
     ) {
     }
 

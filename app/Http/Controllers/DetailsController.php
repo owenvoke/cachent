@@ -9,10 +9,10 @@ use Illuminate\Contracts\View\Factory as ViewFactory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class DetailsController
+readonly class DetailsController
 {
     public function __construct(
-        private readonly ViewFactory $view,
+        private ViewFactory $view,
     ) {
     }
 

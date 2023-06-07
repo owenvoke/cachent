@@ -14,7 +14,7 @@ class UploadRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'torrent' => ['file', 'mimes:torrent', new IsTorrentFile()],
+            'torrent' => ['required', 'file', 'mimes:torrent', new IsTorrentFile()],
         ];
     }
 }

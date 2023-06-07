@@ -11,11 +11,10 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Routing\Redirector;
 
-class UploadController
+readonly class UploadController
 {
     public function __construct(
-        private readonly Redirector $redirector,
-        private readonly Filesystem $filesystem,
+        private Redirector $redirector,
     ) {
     }
 
@@ -33,11 +32,11 @@ class UploadController
             'size' => $data->size(),
         ]);
 
-        if ($request->user()) {
-            $request->user()->torrents()->attach($torrent);
+        if ($user = $request->user()) {
+            $user->torrents()->syncWithoutDetaching($torrent);
         }
 
-        if ($torrent->wasRecentlyCreated && ! $this->filesystem->exists("app/torrents/{$torrent->hash}.torrent")) {
+        if ($torrent->wasRecentlyCreated) {
             $torrentFile->storePubliclyAs('torrents', "{$torrent->hash}.torrent");
         }
 
