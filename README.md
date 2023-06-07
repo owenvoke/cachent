@@ -16,7 +16,21 @@ composer create-project owenvoke/cachent
 
 ## Usage
 
-...
+### Requirements
+
+- **PHP** >= 8.2
+- **MySQL** >= 5.7, **MariaDB** >= 10.3, or [another supported database](https://laravel.com/docs/10.x/database#introduction)
+- **Composer** >= 2.0
+- **A PHP Compatible Webserver**
+
+### Configuration
+
+1. Run `composer install --no-dev` in the Cachent project directory.
+2. Copy the `.env.example` file to `.env` and fill with your own database and mail details.
+3. Ensure the `storage` and `bootstrap/cache` directories are writable by the server.
+4. Run `php artisan key:generate` to generate a unique application key.
+5. Set up your web server to point to the `public` directory.
+6. Run `php artisan migrate` to update the database.
 
 ## Change log
 
@@ -25,7 +39,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Testing
 
 ```bash
-$ composer test
+composer test
 ```
 
 ## Security
