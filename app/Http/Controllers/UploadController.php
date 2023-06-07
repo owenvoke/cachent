@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UploadRequest;
 use App\Models\Torrent;
-use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Routing\Redirector;
