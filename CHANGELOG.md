@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v2.0.1 (2023-06-07)
+
+### Fixed
+- Fix issue with missing navigation on mobile
+- Fix issue with duplicated `attach` records
+
 ## v2.0.0 (2023-06-06)
 
 ### Added
