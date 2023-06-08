@@ -1,0 +1,34 @@
+# Node.js / npm
+/node_modules
+/public/hot
+/public/storage
+
+# Assets
+/public/js
+/public/css
+
+# PHP / Laravel
+/bootstrap/cache/*.php
+/storage/framework/views/*.php
+/storage/*.key
+/vendor
+
+# Env
+.env.backup
+.env.ci
+.env.local
+.env.backup
+.env.docker.example
+
+# Tooling
+.phpunit.result.cache
+npm-debug.log
+yarn-error.log
+
+# IDEs
+/.idea
+/.vscode
+
+# Docker
+Dockerfile
+docker-compose.yml

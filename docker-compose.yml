@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            DB_CONNECTION: ${DB_CONNECTION}
+            DB_HOST: ${DB_HOST}
+            DB_DATABASE: ${DB_DATABASE}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+        tty: true
+        ports:
+            - '9000:9000'
+        volumes:
+            - .:/app
+        networks:
+            - cachent
+
+    caddy:
+        image: caddy:alpine
+        ports:
+            - '8000:80'
+        volumes:
+            - .:/app
+            - ./docker/Caddyfile:/etc/caddy/Caddyfile
+        networks:
+            - cachent
+
+    database:
+        image: mariadb
+        environment:
+            MARIADB_RANDOM_ROOT_PASSWORD: true
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_USERNAME: ${DB_USERNAME}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - database:/var/lib/mysql
+        ports:
+            - '3306:3306'
+        networks:
+            - cachent
+
+networks:
+    cachent:
+        driver: bridge
+
+volumes:
+    database:
