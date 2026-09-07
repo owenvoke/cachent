@@ -34,7 +34,7 @@ composer create-project owenvoke/cachent
 
 ## Change log
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see [GitHub Releases][link-github-releases] for more information on what has changed recently.
 
 ## Testing
 
@@ -60,5 +60,6 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-downloads]: https://img.shields.io/packagist/dt/owenvoke/cachent.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/owenvoke/cachent
+[link-github-releases]: https://github.com/owenvoke/cachent/releases
 [link-author]: https://github.com/owenvoke
 [link-contributors]: ../../contributors
