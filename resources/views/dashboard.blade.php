@@ -1,16 +1,21 @@
-<x-app-layout>
-    <div class="py-12">
-        <div class="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8">
-            <x-banner class="mb-2"></x-banner>
-            <x-validation-errors class="mb-2"></x-validation-errors>
+<x-layouts::app :title="__('Dashboard')">
+    <div class="mx-auto w-full max-w-4xl space-y-8">
+        @if ($errors->any())
+            <flux:callout variant="danger" icon="exclamation-triangle" :heading="__('That torrent could not be uploaded')">
+                <flux:callout.text>
+                    <ul class="list-inside list-disc">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </flux:callout.text>
+            </flux:callout>
+        @endif
 
-            <x-upload-form></x-upload-form>
+        <x-upload-form />
 
-            @auth
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl rounded-lg mt-8">
-                    <livewire:uploaded-torrents></livewire:uploaded-torrents>
-                </div>
-            @endauth
-        </div>
+        @auth
+            <livewire:uploaded-torrents />
+        @endauth
     </div>
-</x-app-layout>
+</x-layouts::app>

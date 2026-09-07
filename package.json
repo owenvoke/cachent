@@ -1,4 +1,5 @@
 {
+    "$schema": "https://www.schemastore.org/package.json",
     "private": true,
     "type": "module",
     "scripts": {
@@ -6,12 +7,8 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@alpinejs/focus": "^3.17.1",
-        "@ryangjchandler/alpine-clipboard": "^2.3.0",
-        "@tailwindcss/forms": "^0.5.11",
-        "@tailwindcss/typography": "^0.5.20",
+        "@laravel/passkeys": "^0.2.0",
         "@tailwindcss/vite": "^4.3.3",
-        "axios": "^1.20.0",
         "laravel-vite-plugin": "^3.2.0",
         "tailwindcss": "^4.3.3",
         "vite": "^8.2.2"

@@ -7,15 +7,17 @@
     "require": {
         "php": "^8.4",
         "arokettu/torrent-file": "^5.3.4",
+        "laravel/fortify": "^1.39",
         "laravel/framework": "^13.30",
-        "laravel/jetstream": "^5.5.3",
-        "laravel/sanctum": "^4.3.3",
         "laravel/tinker": "^3.0.2",
-        "livewire/livewire": "^3.8.7"
+        "livewire/blaze": "^1.0",
+        "livewire/flux": "^2.18",
+        "livewire/livewire": "^4.4"
     },
     "require-dev": {
         "fakerphp/faker": "^1.24.1",
         "larastan/larastan": "^3.11",
+        "laravel/pao": "^1.1",
         "laravel/pint": "^1.30.5",
         "mockery/mockery": "^1.6.15",
         "nunomaduro/collision": "^8.9.5",

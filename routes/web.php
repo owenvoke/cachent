@@ -24,3 +24,5 @@ $router->get('/', DashboardController::class)->name('dashboard');
 $router->post('/upload', UploadController::class)->name('upload');
 $router->get('/torrents/{torrent:hash}.torrent', DownloadController::class)->name('download');
 $router->get('/torrents/{torrent:hash}', DetailsController::class)->name('details');
+
+require __DIR__.'/settings.php';
