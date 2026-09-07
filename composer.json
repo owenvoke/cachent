@@ -17,7 +17,6 @@
         "fakerphp/faker": "^1.24.1",
         "larastan/larastan": "^3.11",
         "laravel/pint": "^1.30.5",
-        "laravel/sail": "^1.67",
         "mockery/mockery": "^1.6.15",
         "nunomaduro/collision": "^8.9.5",
         "pestphp/pest": "^5.1.3",
