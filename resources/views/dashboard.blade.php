@@ -4,12 +4,10 @@
             <x-banner class="mb-2"></x-banner>
             <x-validation-errors class="mb-2"></x-validation-errors>
 
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
-                <x-upload-form></x-upload-form>
-            </div>
+            <x-upload-form></x-upload-form>
 
             @auth
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg mt-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl rounded-lg mt-8">
                     <livewire:uploaded-torrents></livewire:uploaded-torrents>
                 </div>
             @endauth
