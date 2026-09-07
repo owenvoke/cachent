@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -48,11 +48,11 @@
                         {{ __('Use an authentication code') }}
                     </button>
 
-                    <x-button class="ml-4">
+                    <x-button class="ms-4">
                         {{ __('Log in') }}
                     </x-button>
                 </div>
             </form>
         </div>
     </x-authentication-card>
-</x-app-layout>
+</x-guest-layout>

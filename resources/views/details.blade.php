@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-slate-800 mb-4 shadow overflow-hidden rounded sm:rounded-lg">
+            <div class="bg-white dark:bg-slate-800 mb-4 shadow-sm overflow-hidden rounded-sm sm:rounded-lg">
                 <div class="border-t border-gray-200 dark:border-gray-600 px-4 py-5 sm:p-0">
                     <dl class="sm:divide-y sm:divide-gray-200 sm:dark:divide-gray-600">
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -34,8 +34,8 @@
             </div>
 
             <div x-data>
-                <div class="mt-2 flex rounded-md shadow-sm">
-                    <div class="relative flex flex-grow items-stretch focus-within:z-10">
+                <div class="mt-2 flex rounded-md shadow-xs">
+                    <div class="relative flex grow items-stretch focus-within:z-10">
                         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                  stroke="currentColor" class="h-5 w-5 text-gray-400" aria-hidden="true">
@@ -45,7 +45,7 @@
                         </div>
                         <label class="w-full">
                             <input readonly x-ref="downloadLink" onclick="this.select()"
-                                   class="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-50 outline-none ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-purple-200 dark:focus:ring-purple-800 sm:text-sm sm:leading-6"
+                                   class="block w-full rounded-none rounded-l-md border-0 py-1.5 pl-10 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-50 outline-hidden ring-1 ring-inset ring-gray-300 dark:ring-gray-700 focus:ring-purple-200 dark:focus:ring-purple-800 sm:text-sm sm:leading-6"
                                    value="{{ route('download', ['torrent' => $torrent]) }}">
                         </label>
                     </div>

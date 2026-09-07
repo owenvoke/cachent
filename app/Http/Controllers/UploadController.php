@@ -14,8 +14,7 @@ readonly class UploadController
 {
     public function __construct(
         private Redirector $redirector,
-    ) {
-    }
+    ) {}
 
     public function __invoke(UploadRequest $request): RedirectResponse
     {

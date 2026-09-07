@@ -14,7 +14,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.2]
+        php: [8.4]
         dependency-version: [prefer-stable]
 
     name: PHP ${{ matrix.php }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
@@ -22,7 +22,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -45,3 +45,36 @@ jobs:
 
       - name: Run Pest Tests
         run: vendor/bin/pest -p --colors=always
+
+  assets:
+    runs-on: ubuntu-latest
+
+    name: Assets
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          coverage: none
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      # Tailwind scans Livewire's pagination views, so Composer dependencies
+      # have to be present before the stylesheet can be built.
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress --ansi
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build

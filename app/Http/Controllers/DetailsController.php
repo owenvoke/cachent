@@ -13,8 +13,7 @@ readonly class DetailsController
 {
     public function __construct(
         private ViewFactory $view,
-    ) {
-    }
+    ) {}
 
     public function __invoke(Request $request, Torrent $torrent): View
     {

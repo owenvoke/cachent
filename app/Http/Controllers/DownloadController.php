@@ -15,8 +15,7 @@ readonly class DownloadController
     public function __construct(
         private ResponseFactory $response,
         private Application $app,
-    ) {
-    }
+    ) {}
 
     public function __invoke(Request $request, Torrent $torrent): BinaryFileResponse
     {

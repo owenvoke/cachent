@@ -18,8 +18,8 @@ composer create-project owenvoke/cachent
 
 ### Requirements
 
-- **PHP** >= 8.2
-- **MySQL** >= 5.7, **MariaDB** >= 10.3, or [another supported database](https://laravel.com/docs/10.x/database#introduction)
+- **PHP** >= 8.4
+- **MySQL** >= 5.7, **MariaDB** >= 10.3, or [another supported database](https://laravel.com/docs/13.x/database#introduction)
 - **Composer** >= 2.0
 - **A PHP Compatible Webserver**
 

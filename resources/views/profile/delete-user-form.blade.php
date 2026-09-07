@@ -19,7 +19,7 @@
         </div>
 
         <!-- Delete User Confirmation Modal -->
-        <x-dialog-modal wire:model="confirmingUserDeletion">
+        <x-dialog-modal wire:model.live="confirmingUserDeletion">
             <x-slot name="title">
                 {{ __('Delete Account') }}
             </x-slot>
@@ -32,7 +32,7 @@
                                 autocomplete="current-password"
                                 placeholder="{{ __('Password') }}"
                                 x-ref="password"
-                                wire:model.defer="password"
+                                wire:model="password"
                                 wire:keydown.enter="deleteUser" />
 
                     <x-input-error for="password" class="mt-2" />
@@ -44,7 +44,7 @@
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ml-3" wire:click="deleteUser" wire:loading.attr="disabled">
+                <x-danger-button class="ms-3" wire:click="deleteUser" wire:loading.attr="disabled">
                     {{ __('Delete Account') }}
                 </x-danger-button>
             </x-slot>

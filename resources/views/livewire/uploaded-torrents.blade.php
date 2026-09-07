@@ -7,15 +7,15 @@
                         <thead>
                         <tr>
                             <th scope="col"
-                                class="sticky top-0 z-10 border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">
+                                class="sticky top-0 z-10 border-b border-gray-300 dark:border-gray-700 bg-white/75 dark:bg-gray-800/75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 backdrop-blur-sm backdrop-filter sm:pl-6 lg:pl-8">
                                 Hash
                             </th>
                             <th scope="col"
-                                class="sticky top-0 z-10 hidden border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 backdrop-blur backdrop-filter sm:table-cell">
+                                class="sticky top-0 z-10 hidden border-b border-gray-300 dark:border-gray-700 bg-white/75 dark:bg-gray-800/75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 backdrop-blur-sm backdrop-filter sm:table-cell">
                                 Uploaded
                             </th>
                             <th scope="col"
-                                class="sticky top-0 z-10 border-b border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 bg-opacity-75 py-3.5 pl-3 pr-4 backdrop-blur backdrop-filter sm:pr-6 lg:pr-8">
+                                class="sticky top-0 z-10 border-b border-gray-300 dark:border-gray-700 bg-white/75 dark:bg-gray-800/75 py-3.5 pl-3 pr-4 backdrop-blur-sm backdrop-filter sm:pr-6 lg:pr-8">
                                 <span class="sr-only">Manage</span>
                             </th>
                         </tr>

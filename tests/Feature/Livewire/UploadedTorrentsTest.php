@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Http\Livewire\UploadedTorrents;
+use App\Livewire\UploadedTorrents;
 use Database\Factories\UserFactory;
 use Livewire\Livewire;
 

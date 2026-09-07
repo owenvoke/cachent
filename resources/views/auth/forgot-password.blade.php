@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -8,11 +8,11 @@
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
 
-        @if (session('status'))
+        @session('status')
             <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
-                {{ session('status') }}
+                {{ $value }}
             </div>
-        @endif
+        @endsession
 
         <x-validation-errors class="mb-4" />
 
@@ -31,4 +31,4 @@
             </div>
         </form>
     </x-authentication-card>
-</x-app-layout>
+</x-guest-layout>

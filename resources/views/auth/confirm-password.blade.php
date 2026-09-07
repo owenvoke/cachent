@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -19,10 +19,10 @@
             </div>
 
             <div class="flex justify-end mt-4">
-                <x-button class="ml-4">
+                <x-button class="ms-4">
                     {{ __('Confirm') }}
                 </x-button>
             </div>
         </form>
     </x-authentication-card>
-</x-app-layout>
+</x-guest-layout>
