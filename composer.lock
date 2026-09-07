@@ -4,8 +4,210 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3df5c99bcbbc01f2de72caf0c000e0ec",
+    "content-hash": "b66fbfb1671ff0a731a3378fe68bac5b",
     "packages": [
+        {
+            "name": "arokettu/bencode",
+            "version": "4.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arokettu/bencode.git",
+                "reference": "032e827e3c266a23d541afb5d42889288b999fdc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arokettu/bencode/zipball/032e827e3c266a23d541afb5d42889288b999fdc",
+                "reference": "032e827e3c266a23d541afb5d42889288b999fdc",
+                "shasum": ""
+            },
+            "require": {
+                "arokettu/is-resource": "^1.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "brick/math": "*",
+                "ext-bcmath": "*",
+                "ext-gmp": "*",
+                "ext-json": "*",
+                "mikey179/vfsstream": "^1.6.11",
+                "pear/math_biginteger": "^1.0",
+                "phpunit/phpunit": "^10.5.28",
+                "psy/psysh": "*",
+                "sandfox.dev/code-standard": "^1.2025.09.17",
+                "squizlabs/php_codesniffer": "*",
+                "vimeo/psalm": "^6"
+            },
+            "suggest": {
+                "brick/math": "In case you need integers larger than your architecture supports",
+                "ext-bcmath": "In case you need integers larger than your architecture supports (PHP 8.4 or later)",
+                "ext-gmp": "In case you need integers larger than your architecture supports",
+                "pear/math_biginteger": "In case you need integers larger than your architecture supports",
+                "php-64bit": "Running 64 bit is recommended to prevent integer overflow"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arokettu\\Bencode\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Smirnov",
+                    "email": "sandfox@sandfox.me",
+                    "homepage": "https://sandfox.me",
+                    "role": "developer"
+                }
+            ],
+            "description": "BitTorrent's Bencode encoder/decoder",
+            "homepage": "https://sandfox.dev/php/bencode.html",
+            "keywords": [
+                "bencode",
+                "bittorrent",
+                "serialize",
+                "torrent"
+            ],
+            "support": {
+                "chat": "https://gitter.im/arokettu/community",
+                "docs": "https://bencode.readthedocs.io/",
+                "issues": "https://gitlab.com/sandfox/bencode/-/issues",
+                "source": "https://gitlab.com/sandfox/bencode"
+            },
+            "time": "2025-10-09T20:55:32+00:00"
+        },
+        {
+            "name": "arokettu/is-resource",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arokettu/is-resource.git",
+                "reference": "17d3e955140b23c53c4d47d779f1e443d492ffad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arokettu/is-resource/zipball/17d3e955140b23c53c4d47d779f1e443d492ffad",
+                "reference": "17d3e955140b23c53c4d47d779f1e443d492ffad",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3 <8.6"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "classmap": [
+                    "gen/ResourceMap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Smirnov",
+                    "email": "sandfox@sandfox.me",
+                    "homepage": "https://sandfox.me/",
+                    "role": "developer"
+                }
+            ],
+            "description": "Future compatible is_resource() and get_resource_type() that can understand objects that replaced earlier resources",
+            "homepage": "https://sandfox.dev/php/is-resource.html",
+            "keywords": [
+                "compatibility",
+                "curl",
+                "gd",
+                "get_resource_type",
+                "hash",
+                "is_resource",
+                "pgsql",
+                "php80",
+                "php81",
+                "resources",
+                "sockets"
+            ],
+            "support": {
+                "chat": "https://gitter.im/arokettu/community",
+                "docs": "https://is-resource.readthedocs.io/",
+                "issues": "https://gitlab.com/sandfox/is-resource/-/issues",
+                "source": "https://gitlab.com/sandfox/is-resource"
+            },
+            "time": "2025-08-15T16:09:36+00:00"
+        },
+        {
+            "name": "arokettu/torrent-file",
+            "version": "5.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arokettu/torrent-file.git",
+                "reference": "18459bba99c6977d60a300d2370ea13c4292b3ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arokettu/torrent-file/zipball/18459bba99c6977d60a300d2370ea13c4292b3ef",
+                "reference": "18459bba99c6977d60a300d2370ea13c4292b3ef",
+                "shasum": ""
+            },
+            "require": {
+                "arokettu/bencode": "^2.8 || ^3.1 || ^4.0",
+                "ext-hash": "*",
+                "nikic/iter": "^2.2",
+                "php": "^8.1",
+                "psr/event-dispatcher": "^1.0",
+                "symfony/filesystem": ">=5.4 <9",
+                "symfony/finder": ">=5.4 <9"
+            },
+            "require-dev": {
+                "ext-openssl": "*",
+                "jetbrains/phpstorm-attributes": "^1.0",
+                "league/event": "^3.0",
+                "phpunit/phpunit": "^10.5.58",
+                "psy/psysh": "*",
+                "sandfox.dev/code-standard": "^1.2025.09.17",
+                "squizlabs/php_codesniffer": "*",
+                "vimeo/psalm": "^5.2 || ^6"
+            },
+            "suggest": {
+                "ext-openssl": "for signature logic"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arokettu\\Torrent\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Smirnov",
+                    "email": "sandfox@sandfox.me",
+                    "homepage": "https://sandfox.me/",
+                    "role": "developer"
+                }
+            ],
+            "description": "A class to work with torrent files",
+            "homepage": "https://sandfox.dev/php/torrent-file.html",
+            "keywords": [
+                "bittorrent",
+                "torrent",
+                "torrent-file"
+            ],
+            "support": {
+                "chat": "https://gitter.im/arokettu/community",
+                "docs": "https://torrent-file.readthedocs.io/",
+                "issues": "https://gitlab.com/sandfox/torrent-file/-/issues",
+                "source": "https://gitlab.com/sandfox/torrent-file"
+            },
+            "time": "2025-10-28T21:44:34+00:00"
+        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "v3.1.1",
@@ -193,45 +395,6 @@
                 }
             ],
             "time": "2026-09-06T14:11:38+00:00"
-        },
-        {
-            "name": "coldwinds/torrent-rw",
-            "version": "v1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/coldwinds/torrent-rw.git",
-                "reference": "509894fc2bb94ad7a6d6223a73c7745545ca8384"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/coldwinds/torrent-rw/zipball/509894fc2bb94ad7a6d6223a73c7745545ca8384",
-                "reference": "509894fc2bb94ad7a6d6223a73c7745545ca8384",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "Torrent.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Version 3 of the GNU GPL"
-            ],
-            "description": "Composer version of torrent-rw https://github.com/adriengibrat/torrent-rw",
-            "keywords": [
-                "bencode",
-                "bittorrent",
-                "torrent",
-                "torrent-rw"
-            ],
-            "support": {
-                "source": "https://github.com/coldwinds/torrent-rw/tree/master"
-            },
-            "time": "2016-05-23T04:58:25+00:00"
         },
         {
             "name": "dasprid/enum",
@@ -2997,6 +3160,58 @@
             "time": "2026-07-17T23:02:45+00:00"
         },
         {
+            "name": "nikic/iter",
+            "version": "v2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/iter.git",
+                "reference": "3f031ae08d82c4394410e76b88b441331a6fa15f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/iter/zipball/3f031ae08d82c4394410e76b88b441331a6fa15f",
+                "reference": "3f031ae08d82c4394410e76b88b441331a6fa15f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.4",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
+                "vimeo/psalm": "^4.18 || ^5.13"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/iter.func.php",
+                    "src/iter.php",
+                    "src/iter.rewindable.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Popov",
+                    "email": "nikic@php.net"
+                }
+            ],
+            "description": "Iteration primitives using generators",
+            "keywords": [
+                "functional",
+                "generator",
+                "iterator"
+            ],
+            "support": {
+                "issues": "https://github.com/nikic/iter/issues",
+                "source": "https://github.com/nikic/iter/tree/v2.4.1"
+            },
+            "time": "2024-03-19T20:45:05+00:00"
+        },
+        {
             "name": "nikic/php-parser",
             "version": "v5.8.0",
             "source": {
@@ -4261,55 +4476,6 @@
             "time": "2026-06-18T03:57:49+00:00"
         },
         {
-            "name": "rych/bytesize",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rchouinard/bytesize.git",
-                "reference": "297e16ea047461b91e8d7eb90aa46aaa52917824"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rchouinard/bytesize/zipball/297e16ea047461b91e8d7eb90aa46aaa52917824",
-                "reference": "297e16ea047461b91e8d7eb90aa46aaa52917824",
-                "shasum": ""
-            },
-            "require": {
-                "ext-bcmath": "*",
-                "php": ">=5.3.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Rych\\ByteSize\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ryan Chouinard",
-                    "email": "rchouinard@gmail.com",
-                    "homepage": "http://ryanchouinard.com"
-                }
-            ],
-            "description": "Utility component for nicely formatted file sizes.",
-            "homepage": "https://github.com/rchouinard/bytesize",
-            "keywords": [
-                "filesize"
-            ],
-            "support": {
-                "issues": "https://github.com/rchouinard/bytesize/issues",
-                "source": "https://github.com/rchouinard/bytesize/tree/master"
-            },
-            "time": "2014-04-04T18:06:18+00:00"
-        },
-        {
             "name": "spomky-labs/cbor-php",
             "version": "3.3.4",
             "source": {
@@ -5052,6 +5218,77 @@
                 }
             ],
             "time": "2026-06-05T06:23:12+00:00"
+        },
+        {
+            "name": "symfony/filesystem",
+            "version": "v8.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/filesystem.git",
+                "reference": "7599ebb855fede59413ddb7f15198d67bfcae7ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7599ebb855fede59413ddb7f15198d67bfcae7ba",
+                "reference": "7599ebb855fede59413ddb7f15198d67bfcae7ba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.4.1",
+                "symfony/deprecation-contracts": "^2.5|^3",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-mbstring": "~1.8"
+            },
+            "require-dev": {
+                "symfony/process": "^7.4|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides basic utilities for the filesystem",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/filesystem/tree/v8.1.6"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-08-23T10:06:25+00:00"
         },
         {
             "name": "symfony/finder",

@@ -1,18 +1,17 @@
 {
+    "$schema": "https://getcomposer.org/schema.json",
     "name": "owenvoke/cachent",
     "type": "project",
     "description": "A secure, open source torrent cache.",
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "coldwinds/torrent-rw": "^1.1",
-        "guzzlehttp/guzzle": "^7.10",
+        "arokettu/torrent-file": "^5.3.4",
         "laravel/framework": "^13.30",
         "laravel/jetstream": "^5.5.3",
         "laravel/sanctum": "^4.3.3",
         "laravel/tinker": "^3.0.2",
-        "livewire/livewire": "^3.8.7",
-        "rych/bytesize": "^1.0"
+        "livewire/livewire": "^3.8.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.24.1",
@@ -59,6 +58,9 @@
             "@test:lint",
             "@test:types",
             "@test:unit"
+        ],
+        "pre-package-uninstall": [
+            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ]
     },
     "extra": {

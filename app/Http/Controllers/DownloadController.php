@@ -5,25 +5,23 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\Torrent;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 readonly class DownloadController
 {
     public function __construct(
-        private ResponseFactory $response,
-        private Application $app,
+        private FilesystemFactory $filesystem,
     ) {}
 
-    public function __invoke(Request $request, Torrent $torrent): BinaryFileResponse
+    public function __invoke(Request $request, Torrent $torrent): StreamedResponse
     {
         $torrent->increment('downloads');
 
-        return $this->response->download(
-            $this->app->storagePath("app/torrents/{$torrent->hash}.torrent"),
-            "{$torrent->hash}.torrent"
-        );
+        // Read through the same disk the upload wrote to, so the two cannot
+        // drift apart the way a hardcoded storage path did.
+        return $this->filesystem->disk('torrents')
+            ->download("{$torrent->hash}.torrent");
     }
 }

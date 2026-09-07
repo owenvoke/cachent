@@ -40,6 +40,18 @@ return [
             'report' => false,
         ],
 
+        /*
+         * Cached torrents predate the Laravel 11 change that moved the "local"
+         * disk root to storage/app/private, so this disk is pinned to the
+         * directory the existing files already live in.
+         */
+        'torrents' => [
+            'driver' => 'local',
+            'root' => storage_path('app/torrents'),
+            'throw' => false,
+            'report' => false,
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
