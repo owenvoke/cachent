@@ -1,0 +1,50 @@
+# Node.js / npm
+/node_modules
+/public/hot
+/public/storage
+
+# Assets
+/public/build
+/public/js
+/public/css
+
+# PHP / Laravel
+/bootstrap/cache/*.php
+/storage/app/private
+/storage/app/public/*
+/storage/app/torrents
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*.php
+/storage/logs/*.log
+/storage/*.key
+/vendor
+
+# Env
+.env
+.env.backup
+.env.ci
+.env.local
+.env.docker.example
+
+# Testing
+/tests
+/phpunit.xml
+.phpunit.result.cache
+/phpstan.neon.dist
+/pint.json
+
+# Tooling
+npm-debug.log
+yarn-error.log
+
+# IDEs
+/.idea
+/.vscode
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# CI
+/.github

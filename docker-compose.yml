@@ -1,0 +1,51 @@
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            # Set to `true` for production environments
+            AUTORUN_ENABLED: "false"
+            DB_CONNECTION: ${DB_CONNECTION}
+            DB_HOST: ${DB_HOST}
+            DB_DATABASE: ${DB_DATABASE}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+            # Keep changes to the bind mounted source visible without a rebuild
+            PHP_OPCACHE_ENABLE: 0
+        tty: true
+        ports:
+            - '8000:8080'
+        volumes:
+            - .:/var/www/html
+        depends_on:
+            database:
+                condition: service_healthy
+        networks:
+            - cachent
+
+    database:
+        image: mariadb:lts
+        environment:
+            MARIADB_RANDOM_ROOT_PASSWORD: true
+            MARIADB_DATABASE: ${DB_DATABASE}
+            MARIADB_USER: ${DB_USERNAME}
+            MARIADB_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - database:/var/lib/mysql
+        ports:
+            - '3306:3306'
+        healthcheck:
+            test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+            interval: 10s
+            timeout: 5s
+            retries: 5
+        networks:
+            - cachent
+
+networks:
+    cachent:
+        driver: bridge
+
+volumes:
+    database:
